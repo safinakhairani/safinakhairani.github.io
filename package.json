@@ -7,22 +7,14 @@
 	"scripts": {
 		"predeploy": "npm run build",
 		"deploy": "gh-pages -d dist -r https://github.com/safinakhairani/safinakhairani.github.io.git",
-		"start": "react-scripts start",
-		"build": "react-scripts build",
-		"test": "react-scripts test",
-		"eject": "react-scripts eject"
+		"dev": "vite",
+		"build": "vite build",
+		"preview": "vite preview"
 	},
 	"dependencies": {
-		"@testing-library/jest-dom": "^5.16.2",
-		"@testing-library/user-event": "^13.5.0",
-		"framer-motion": "^6.3.16",
-		"react": "19.2.7",
-		"react-dom": "19.2.7",
-		"react-router": "^6.3.0",
-		"react-router-dom": "^6.3.0",
-		"react-scripts": "5.0.0",
-		"smooth-scrollbar-react": "^2.4.1",
-		"web-vitals": "^2.1.4"
+		"lucide-react": "^0.468.0",
+		"react": "^19.1.1",
+		"react-dom": "^19.1.1"
 	},
 	"devDependencies": {
 		"@vitejs/plugin-react": "^4.4.1",

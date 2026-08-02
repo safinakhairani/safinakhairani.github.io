@@ -1,0 +1,24 @@
+{
+	"homepage": "https://safinakhairani.github.io/",
+	"name": "safinakhairani",
+	"private": true,
+	"version": "1.0.0",
+	"type": "module",
+	"scripts": {
+		"predeploy": "npm run build",
+		"deploy": "gh-pages -d dist -r https://github.com/zulkarnaenfhr/safinakhairani.github.io.git",
+		"dev": "vite",
+		"build": "vite build",
+		"preview": "vite preview"
+	},
+	"dependencies": {
+		"lucide-react": "^0.468.0",
+		"react": "^19.1.1",
+		"react-dom": "^19.1.1"
+	},
+	"devDependencies": {
+		"@vitejs/plugin-react": "^4.4.1",
+		"gh-pages": "^6.3.0",
+		"vite": "^6.0.0"
+	}
+}

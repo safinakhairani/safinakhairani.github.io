@@ -6,7 +6,7 @@
 	"type": "module",
 	"scripts": {
 		"predeploy": "npm run build",
-		"deploy": "gh-pages -d dist -r https://github.com/zulkarnaenfhr/safinakhairani.github.io.git",
+		"deploy": "gh-pages -d dist -r https://github.com/safinakhairani/safinakhairani.github.io.git",
 		"dev": "vite",
 		"build": "vite build",
 		"preview": "vite preview"

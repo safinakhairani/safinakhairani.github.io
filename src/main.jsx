@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { ArrowUpRight, CheckCircle2, ChevronDown, ExternalLink, Figma, Mail, MapPin, Menu, X, ShieldCheck, Sparkles } from 'lucide react';
+import { ArrowUpRight, CheckCircle2, ChevronDown, ExternalLink, Figma, Mail, MapPin, Menu, X, ShieldCheck, Sparkles } from 'lucide-react';
 import './styles.css';
 
 const projects = [

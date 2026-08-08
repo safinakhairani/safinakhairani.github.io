@@ -12,6 +12,7 @@
 		"deploy": "gh-pages -d dist -r https://github.com/safinakhairani/safinakhairani.github.io.git"
 	},
 	"dependencies": {
+		"framer-motion": "^13.0.0",
 		"lucide-react": "^0.468.0",
 		"react": "^19.1.1",
 		"react-dom": "^19.1.1"

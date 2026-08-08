@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { ArrowUpRight, CheckCircle2, ChevronDown, ExternalLink, Figma, Mail, MapPin, Menu, X, ShieldCheck, Sparkles } from 'lucide-react';
+import { ArrowUpRight, CheckCircle2, ExternalLink, Figma, Mail, MapPin, Menu, X, ShieldCheck, Sparkles } from 'lucide-react';
 import './styles.css';
 
 const projects = [
@@ -34,6 +34,7 @@ const projects = [
 ];
 
 const skills = ['Strategic thinking', 'Problem solving', 'Process improvement', 'Stakeholder management', 'Cross functional collaboration'];
+
 const tools = ['Figma', 'Postman', 'Jira', 'Google Workspace', 'Microsoft Office'];
 
 function App() {
@@ -41,7 +42,10 @@ function App() {
 	const [activeProject, setActiveProject] = useState(null);
 
 	const go = (id) => {
-		document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+		document.getElementById(id)?.scrollIntoView({
+			behavior: 'smooth',
+		});
+
 		setOpen(false);
 	};
 
@@ -51,21 +55,31 @@ function App() {
 				<button
 					className="brand"
 					onClick={() => go('home')}
-					aria-label="Go home">
+					aria-label="Go home"
+					data-aos="fade-down"
+					data-aos-duration="700">
 					S<span>.</span>
 				</button>
 
-				<nav className={open ? 'nav-links open' : 'nav-links'}>
-					{['about', 'work', 'skills', 'contact'].map((item) => (
+				<nav
+					className={open ? 'nav-links open' : 'nav-links'}
+					data-aos="fade-down"
+					data-aos-delay="100">
+					{['about', 'work', 'skills', 'contact'].map((item, index) => (
 						<button
 							key={item}
-							onClick={() => go(item)}>
+							onClick={() => go(item)}
+							data-aos="fade-down"
+							data-aos-delay={150 + index * 80}>
 							{item}
 						</button>
 					))}
+
 					<a
 						href="mailto:Fina811@gmail.com"
-						onClick={() => setOpen(false)}>
+						onClick={() => setOpen(false)}
+						data-aos="fade-down"
+						data-aos-delay="500">
 						Let’s talk ↗
 					</a>
 				</nav>
@@ -79,28 +93,53 @@ function App() {
 			</header>
 
 			<main>
+				{/* HERO */}
 				<section
 					id="home"
 					className="hero section">
-					<div className="hero-copy">
-						<div className="eyebrow">
+					<div
+						className="hero-copy"
+						data-aos="fade-right"
+						data-aos-duration="1000">
+						<div
+							className="eyebrow"
+							data-aos="fade-up"
+							data-aos-delay="100">
 							<span className="dot" /> TESTING ANALYST · DIGITAL BANKING
 						</div>
-						<h1>
+
+						<h1
+							data-aos="fade-up"
+							data-aos-delay="200">
 							Meet your
 							<br />
 							<em>problem hunter.</em>
 						</h1>
-						<p className="hero-lead">I don’t just test software — I protect the user experience.</p>
-						<p className="hero-body">
+
+						<p
+							className="hero-lead"
+							data-aos="fade-up"
+							data-aos-delay="300">
+							I don’t just test software — I protect the user experience.
+						</p>
+
+						<p
+							className="hero-body"
+							data-aos="fade-up"
+							data-aos-delay="400">
 							Detail-oriented Testing Analyst with 3 years of banking industry experience, focused on quality assurance, system analysis, UAT, and translating business requirements into reliable digital experiences.
 						</p>
-						<div className="hero-actions">
+
+						<div
+							className="hero-actions"
+							data-aos="fade-up"
+							data-aos-delay="500">
 							<button
 								className="primary"
 								onClick={() => go('work')}>
 								Explore my work <ArrowUpRight size={17} />
 							</button>
+
 							<a
 								className="secondary"
 								href="mailto:Fina811@gmail.com">
@@ -109,27 +148,49 @@ function App() {
 						</div>
 					</div>
 
-					<div className="hero-card">
+					<div
+						className="hero-card"
+						data-aos="fade-left"
+						data-aos-duration="1000"
+						data-aos-delay="200">
 						<div className="orbit orbit-one" />
 						<div className="orbit orbit-two" />
-						<div className="portrait-placeholder">
+
+						<div
+							className="portrait-placeholder"
+							data-aos="zoom-in"
+							data-aos-delay="500">
 							<span>SK</span>
 						</div>
-						<div className="floating-card top">
+
+						<div
+							className="floating-card top"
+							data-aos="fade-down"
+							data-aos-delay="700">
 							<ShieldCheck size={18} />
+
 							<div>
 								<strong>Quality first</strong>
 								<small>Ready for production</small>
 							</div>
 						</div>
-						<div className="floating-card bottom">
+
+						<div
+							className="floating-card bottom"
+							data-aos="fade-up"
+							data-aos-delay="800">
 							<Sparkles size={17} />
+
 							<div>
 								<strong>95%+ coverage</strong>
 								<small>Major release testing</small>
 							</div>
 						</div>
-						<div className="hero-stamp">
+
+						<div
+							className="hero-stamp"
+							data-aos="zoom-in"
+							data-aos-delay="900">
 							THINK
 							<br />
 							BEYOND
@@ -139,23 +200,40 @@ function App() {
 					</div>
 				</section>
 
+				{/* ABOUT */}
 				<section
 					id="about"
 					className="section about">
-					<div className="section-label">01 / ABOUT</div>
+					<div
+						className="section-label"
+						data-aos="fade-up">
+						01 / ABOUT
+					</div>
+
 					<div className="about-grid">
-						<div>
+						<div
+							data-aos="fade-right"
+							data-aos-duration="900">
 							<h2>
 								Quality is not a final step.
 								<br />
 								<em>It’s a mindset.</em>
 							</h2>
 						</div>
-						<div className="about-copy">
+
+						<div
+							className="about-copy"
+							data-aos="fade-left"
+							data-aos-duration="900"
+							data-aos-delay="150">
 							<p>In digital banking, every successful transaction strengthens user confidence. My role is to help ensure every release is secure, reliable, understandable, and ready for production.</p>
+
 							<p>I think beyond the happy path — exploring edge cases, user behavior, device differences, and potential risks before they reach customers.</p>
+
 							<div className="principles">
-								<div>
+								<div
+									data-aos="fade-up"
+									data-aos-delay="200">
 									<b>01</b>
 									<span>
 										Creativity
@@ -163,7 +241,10 @@ function App() {
 										<small>Explore what could go wrong.</small>
 									</span>
 								</div>
-								<div>
+
+								<div
+									data-aos="fade-up"
+									data-aos-delay="300">
 									<b>02</b>
 									<span>
 										Collaboration
@@ -171,7 +252,10 @@ function App() {
 										<small>Quality is a team effort.</small>
 									</span>
 								</div>
-								<div>
+
+								<div
+									data-aos="fade-up"
+									data-aos-delay="400">
 									<b>03</b>
 									<span>
 										Growth mindset
@@ -184,37 +268,55 @@ function App() {
 					</div>
 				</section>
 
+				{/* WORK */}
 				<section
 					id="work"
 					className="section work">
 					<div className="work-heading">
-						<div>
+						<div
+							data-aos="fade-right"
+							data-aos-duration="900">
 							<div className="section-label">02 / SELECTED WORK</div>
+
 							<h2>
 								Projects that
 								<br />
 								<em>made an impact.</em>
 							</h2>
 						</div>
-						<p>From wearable banking to high visibility campaigns, these are selected projects from Safina’s portfolio.</p>
+
+						<p
+							data-aos="fade-left"
+							data-aos-duration="900"
+							data-aos-delay="150">
+							From wearable banking to high visibility campaigns, these are selected projects from Safina’s portfolio.
+						</p>
 					</div>
 
 					<div className="project-list">
-						{projects.map((project) => (
+						{projects.map((project, index) => (
 							<article
 								className={`project ${project.accent}`}
-								key={project.number}>
+								key={project.number}
+								data-aos="fade-up"
+								data-aos-delay={index * 150}
+								data-aos-duration="800">
 								<div className="project-number">{project.number}</div>
+
 								<div className="project-main">
 									<span className="project-tag">{project.tag}</span>
+
 									<h3>{project.title}</h3>
+
 									<p>{project.description}</p>
+
 									<button
 										className="text-button"
 										onClick={() => setActiveProject(project)}>
 										View case study <ArrowUpRight size={16} />
 									</button>
 								</div>
+
 								<div className="project-icon">
 									<CheckCircle2
 										size={46}
@@ -226,30 +328,57 @@ function App() {
 					</div>
 				</section>
 
+				{/* SKILLS */}
 				<section
 					id="skills"
 					className="section skills">
-					<div className="section-label">03 / TOOLKIT</div>
+					<div
+						className="section-label"
+						data-aos="fade-up">
+						03 / TOOLKIT
+					</div>
+
 					<div className="skills-grid">
-						<div>
+						<div
+							data-aos="fade-right"
+							data-aos-duration="900">
 							<h2>
-								The way I<br />
+								The way I
+								<br />
 								<em>work.</em>
 							</h2>
+
 							<p>A combination of analytical thinking, business understanding, and close collaboration with technical and non technical stakeholders.</p>
 						</div>
-						<div className="skill-block">
+
+						<div
+							className="skill-block"
+							data-aos="fade-left"
+							data-aos-duration="900"
+							data-aos-delay="150">
 							<h4>CORE SKILLS</h4>
+
 							<div className="chips">
-								{skills.map((x) => (
-									<span key={x}>{x}</span>
+								{skills.map((x, index) => (
+									<span
+										key={x}
+										data-aos="zoom-in"
+										data-aos-delay={200 + index * 80}>
+										{x}
+									</span>
 								))}
 							</div>
+
 							<h4 className="tools-title">TOOLS</h4>
+
 							<div className="chips tools">
-								{tools.map((x) => (
-									<span key={x}>
-										{x === 'Figma' && <Figma size={15} />} {x}
+								{tools.map((x, index) => (
+									<span
+										key={x}
+										data-aos="zoom-in"
+										data-aos-delay={300 + index * 80}>
+										{x === 'Figma' && <Figma size={15} />}
+										{x}
 									</span>
 								))}
 							</div>
@@ -257,27 +386,51 @@ function App() {
 					</div>
 				</section>
 
+				{/* EXPERIENCE */}
 				<section className="section experience">
-					<div className="section-label">04 / EXPERIENCE</div>
+					<div
+						className="section-label"
+						data-aos="fade-up">
+						04 / EXPERIENCE
+					</div>
+
 					<div className="timeline">
-						<div className="timeline-item">
+						<div
+							className="timeline-item"
+							data-aos="fade-right"
+							data-aos-duration="800">
 							<span>06/2023 — NOW</span>
+
 							<div>
 								<h3>Testing Analyst</h3>
 								<p>PT Bank Central Asia</p>
 							</div>
+
 							<p className="timeline-detail">Business & functional analysis · UAT · End to end testing · Requirements validation · Cross platform analysis</p>
 						</div>
-						<div className="timeline-item">
+
+						<div
+							className="timeline-item"
+							data-aos="fade-left"
+							data-aos-duration="800"
+							data-aos-delay="150">
 							<span>08/2022 — 11/2022</span>
+
 							<div>
 								<h3>Quality Control Intern</h3>
 								<p>PT Indofood Sukses Makmur</p>
 							</div>
+
 							<p className="timeline-detail">Research on seasoning shelf life across storage temperature, humidity, packaging materials, and methods.</p>
 						</div>
-						<div className="timeline-item education">
+
+						<div
+							className="timeline-item education"
+							data-aos="fade-right"
+							data-aos-duration="800"
+							data-aos-delay="300">
 							<span>2019 — 2023</span>
+
 							<div>
 								<h3>Bachelor of Food Technology</h3>
 								<p>Universitas Katolik Soegijapranata · GPA 3.46/4.00</p>
@@ -286,32 +439,53 @@ function App() {
 					</div>
 				</section>
 
+				{/* CONTACT */}
 				<section
 					id="contact"
 					className="contact section">
-					<div className="contact-inner">
+					<div
+						className="contact-inner"
+						data-aos="fade-up"
+						data-aos-duration="1000">
 						<div className="section-label">05 / GET IN TOUCH</div>
-						<h2>
+
+						<h2
+							data-aos="fade-up"
+							data-aos-delay="100">
 							Let’s create
 							<br />
 							<em>better digital experiences.</em>
 						</h2>
-						<p>Always excited to discuss quality, technology, and new challenges.</p>
+
+						<p
+							data-aos="fade-up"
+							data-aos-delay="200">
+							Always excited to discuss quality, technology, and new challenges.
+						</p>
+
 						<a
 							className="contact-email"
-							href="mailto:Fina811@gmail.com">
+							href="mailto:Fina811@gmail.com"
+							data-aos="zoom-in"
+							data-aos-delay="300">
 							Fina811@gmail.com <ArrowUpRight />
 						</a>
-						<div className="contact-meta">
+
+						<div
+							className="contact-meta"
+							data-aos="fade-up"
+							data-aos-delay="400">
 							<span>
 								<MapPin size={15} /> Tangerang, Indonesia
 							</span>
+
 							<a
 								href="https://www.linkedin.com/in/safinakhairani/"
 								target="_blank"
 								rel="noreferrer">
 								LinkedIn <ExternalLink size={14} />
 							</a>
+
 							<span>@safinakhairani</span>
 						</div>
 					</div>
@@ -323,26 +497,37 @@ function App() {
 				<span>TEST · ANALYZE · IMPROVE</span>
 			</footer>
 
+			{/* PROJECT MODAL */}
 			{activeProject && (
 				<div
 					className="modal-backdrop"
 					onClick={() => setActiveProject(null)}>
 					<div
 						className="modal"
-						onClick={(e) => e.stopPropagation()}>
+						onClick={(e) => e.stopPropagation()}
+						data-aos="zoom-in"
+						data-aos-duration="400">
 						<button
 							className="modal-close"
 							onClick={() => setActiveProject(null)}>
 							<X />
 						</button>
+
 						<span className="project-tag">{activeProject.tag}</span>
+
 						<h2>{activeProject.title}</h2>
+
 						<div className="modal-grid">
-							<div>
+							<div
+								data-aos="fade-right"
+								data-aos-delay="100">
 								<h4>THE CHALLENGE</h4>
 								<p>{activeProject.problem}</p>
 							</div>
-							<div>
+
+							<div
+								data-aos="fade-left"
+								data-aos-delay="150">
 								<h4>MY CONTRIBUTION</h4>
 								<p>{activeProject.contribution}</p>
 							</div>

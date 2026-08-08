@@ -1,5 +1,5 @@
 git status
 git add .
-git commit -m "change wording"
+git commit -m "add animation"
 npm run deploy
 git push -u origin main

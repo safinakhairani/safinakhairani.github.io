@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { ArrowUpRight, CheckCircle2, ExternalLink, Figma, Mail, MapPin, Menu, X, ShieldCheck, Sparkles } from 'lucide-react';
+import profilePhoto from './assets/Profile Safina.jpg';
 import './styles.css';
 
 const projects = [
@@ -164,7 +165,7 @@ function App() {
 							data-aos="zoom-in"
 							data-aos-delay="500">
 							<img
-								src="public/Profile Safina.jpg"
+								src={profilePhoto}
 								alt="Safina Khairani"
 							/>
 						</div>

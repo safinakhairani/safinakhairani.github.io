@@ -3,12 +3,18 @@ import { createRoot } from 'react-dom/client';
 import { ArrowUpRight, CheckCircle2, ExternalLink, Instagram, Mail, MapPin, Menu, X, ShieldCheck, Sparkles, Lightbulb, Puzzle, RefreshCw, UsersRound, BriefcaseBusiness } from 'lucide-react';
 import profilePhoto from './assets/Profile Safina.jpg';
 import './styles.css';
+import flyingGachaImage from './assets/project/flying gacha.jpg';
+import pilihGachaImage from './assets/project/pilih gacha.jpg';
+import applyCreditCardImage from './assets/project/apply credit card online.jpeg';
+import mybcaSmartwatchImage from './assets/project/mybca on smartwatch.jpeg';
 
 const projects = [
 	{
 		number: '01',
 		year: '2025',
 		title: 'myBCA on Smartwatch',
+		image: mybcaSmartwatchImage,
+		url: 'https://www.bca.co.id/id/informasi/edukatips/2026/04/21/10/50/transaksi-makin-simpel-pakai-nfc-pay-di-mybca',
 		tag: 'DIGITAL BANKING',
 		description: 'Testing the myBCA banking experience on smartwatches, including NFC Pay, QRIS, and cardless transactions.',
 		problem: 'A small watch screen leaves little room for unclear steps or confusing messages.',
@@ -17,23 +23,39 @@ const projects = [
 	},
 	{
 		number: '02',
-		year: '2024 — 2025',
-		title: 'Gebyar Hadiah BCA',
-		tag: 'STRATEGIC QA',
-		description: 'Testing BCA loyalty features across myBCA and BCA Mobile, from points and vouchers to Gacha rewards and lucky draws.',
-		problem: 'Campaign rules can get complicated, especially when eligibility, points, and rewards depend on one another.',
-		contribution: 'I wrote and ran end-to-end scenarios, then checked the results against the campaign requirements.',
+		year: '2025',
+		title: 'Flying Gacha BCA',
+		image: flyingGachaImage,
+		url: 'https://www.bca.co.id/id/Campaign/2026/gacha-berhadiah',
+		tag: 'CAMPAIGN QA',
+		description: 'End-to-end testing for a BCA campaign with game participation, points, eligibility, and reward distribution.',
+		problem: 'Campaign mechanics involve several conditions, including customer eligibility, point accumulation, game participation, and reward distribution.',
+		contribution: 'I executed end-to-end scenarios, checked system behavior against business requirements, and worked with stakeholders to resolve discrepancies.',
 		accent: 'mint',
 	},
 	{
 		number: '03',
+		year: '2025',
+		title: 'Pilih Gacha BCA',
+		image: pilihGachaImage,
+		url: 'https://www.bca.co.id/id/Campaign/2026/gacha-berhadiah',
+		tag: 'GAMIFICATION QA',
+		description: 'Testing a gamified customer journey with point calculations, eligibility rules, and reward selection.',
+		problem: 'The experience needed to feel simple while keeping point calculations, customer eligibility, and reward selection accurate.',
+		contribution: 'I created and executed scenarios across different customer journeys, validated the game mechanics, and identified issues before release.',
+		accent: 'peach',
+	},
+	{
+		number: '04',
 		year: '2024',
 		title: 'Apply Credit Card Online',
+		image: applyCreditCardImage,
+		url: 'https://www.bca.co.id/en/informasi/edukatips/2024/11/05/10/09/Bikin-Kartu-Kredit-BCA-Bisa-di-myBCA-Ini-Syarat-dan-Caranya',
 		tag: 'MYBCA',
 		description: 'A secure digital credit-card application journey inside the myBCA mobile app.',
 		problem: 'A financial application has many steps, so every validation and handoff needs to work as expected.',
 		contribution: 'I handled end-to-end, regression, and UAT testing, turning business requirements into practical test scenarios and working with analysts and developers to fix issues.',
-		accent: 'peach',
+		accent: 'lavender',
 	},
 ];
 
@@ -299,8 +321,9 @@ function App() {
 
 					<div className="project-archive">
 						{projects.map((project, index) => (
-							<button
-								className={`archive-card ${project.accent}`}
+							<article
+								className={`archive-card ${project.accent} ${project.image ? 'has-image' : ''}`}
+								style={project.image ? { backgroundImage: `url("${project.image}")` } : undefined}
 								key={`archive-${project.number}`}
 								onClick={() => setActiveProject(project)}
 								data-aos="fade-up"
@@ -309,22 +332,17 @@ function App() {
 									<span>{project.number}</span>
 									<span>{project.year}</span>
 								</span>
-								<span className="mockup-screen">
-									<span className="mockup-bar" />
-									<span className="mockup-lines">
-										<i />
-										<i />
-										<i />
-										<i />
-									</span>
-									<span className="mockup-chart" />
-								</span>
 								<span className="project-tag">{project.tag}</span>
 								<strong>{project.title}</strong>
-								<span className="archive-arrow">
+								<a
+									className="archive-arrow"
+									href={project.url}
+									target="_blank"
+									rel="noreferrer"
+									onClick={(event) => event.stopPropagation()}>
 									View case study <ArrowUpRight size={16} />
-								</span>
-							</button>
+								</a>
+							</article>
 						))}
 					</div>
 				</section>
@@ -349,7 +367,7 @@ function App() {
 								<em>work.</em>
 							</h2>
 
-						<p>My approach combines careful analysis, business context, and straightforward communication with both technical and non-technical teams.</p>
+							<p>My approach combines careful analysis, business context, and straightforward communication with both technical and non-technical teams.</p>
 						</div>
 
 						<div

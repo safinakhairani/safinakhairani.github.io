@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { ArrowUpRight, CheckCircle2, ExternalLink, Figma, Mail, MapPin, Menu, X, ShieldCheck, Sparkles } from 'lucide-react';
+import { ArrowUpRight, CheckCircle2, ExternalLink, Figma, Mail, MapPin, Menu, X, ShieldCheck, Sparkles, Lightbulb, Puzzle, RefreshCw, UsersRound, Send, Wrench, BriefcaseBusiness } from 'lucide-react';
 import profilePhoto from './assets/Profile Safina.jpg';
 import './styles.css';
 
@@ -10,9 +10,9 @@ const projects = [
 		year: '2025',
 		title: 'myBCA on Smartwatch',
 		tag: 'DIGITAL BANKING',
-		description: 'A wearable banking experience supporting NFC Pay, QRIS, and Cardless Transaction across Wear OS and Watch OS.',
-		problem: 'With limited smartwatch screen space, small interaction decisions can strongly affect navigation, clarity, and transaction completion.',
-		contribution: 'Validated the user experience during UAT and helped ensure banking information was displayed accurately, securely, and consistently across devices.',
+		description: 'Testing the myBCA banking experience on smartwatches, including NFC Pay, QRIS, and cardless transactions.',
+		problem: 'A small watch screen leaves little room for unclear steps or confusing messages.',
+		contribution: 'I tested the flow during UAT and checked that the information stayed accurate and secure across Wear OS and Watch OS.',
 		accent: 'lavender',
 	},
 	{
@@ -20,9 +20,9 @@ const projects = [
 		year: '2024 — 2025',
 		title: 'Gebyar Hadiah BCA',
 		tag: 'STRATEGIC QA',
-		description: 'BCA loyalty program features across myBCA and BCA Mobile, including points, Gacha rewards, vouchers, and lucky draws.',
-		problem: 'Complex campaign business rules require broad scenario coverage to make sure eligibility, calculations, rewards, and redemption behave correctly.',
-		contribution: 'Performed end to end testing, created and executed test scenarios, and validated business rules against campaign requirements.',
+		description: 'Testing BCA loyalty features across myBCA and BCA Mobile, from points and vouchers to Gacha rewards and lucky draws.',
+		problem: 'Campaign rules can get complicated, especially when eligibility, points, and rewards depend on one another.',
+		contribution: 'I wrote and ran end-to-end scenarios, then checked the results against the campaign requirements.',
 		accent: 'mint',
 	},
 	{
@@ -30,9 +30,9 @@ const projects = [
 		year: '2024',
 		title: 'Apply Credit Card Online',
 		tag: 'MYBCA',
-		description: 'A secure digital credit card application flow inside the myBCA mobile experience.',
-		problem: 'A multi step financial journey needs reliable validation, clear user interactions, and consistent behavior across the complete application flow.',
-		contribution: 'Performed end to end testing, regression, and UAT testing; translated business requirements into comprehensive test scenarios and collaborated with analysts and developers to resolve issues.',
+		description: 'A secure digital credit-card application journey inside the myBCA mobile app.',
+		problem: 'A financial application has many steps, so every validation and handoff needs to work as expected.',
+		contribution: 'I handled end-to-end, regression, and UAT testing, turning business requirements into practical test scenarios and working with analysts and developers to fix issues.',
 		accent: 'peach',
 	},
 ];
@@ -40,6 +40,9 @@ const projects = [
 const skills = ['Strategic thinking', 'Problem solving', 'Process improvement', 'Stakeholder management', 'Cross functional collaboration'];
 
 const tools = ['Figma', 'Postman', 'Jira', 'Google Workspace', 'Microsoft Office'];
+
+const skillIcons = [Lightbulb, Puzzle, RefreshCw, UsersRound, BriefcaseBusiness];
+const toolIcons = [Figma, Send, Wrench, UsersRound, BriefcaseBusiness];
 
 function App() {
 	const [open, setOpen] = useState(false);
@@ -124,14 +127,14 @@ function App() {
 							className="hero-lead"
 							data-aos="fade-up"
 							data-aos-delay="300">
-							I don’t just test software — I protect the user experience.
+							I test the details that shape a good user experience.
 						</p>
 
 						<p
 							className="hero-body"
 							data-aos="fade-up"
 							data-aos-delay="400">
-							Detail-oriented Testing Analyst with 3 years of banking industry experience, focused on quality assurance, system analysis, UAT, and translating business requirements into reliable digital experiences.
+							I’m a Testing Analyst with three years of experience in digital banking. I focus on QA, system analysis, UAT, and making sure business requirements work in the real world.
 						</p>
 
 						<div
@@ -140,13 +143,13 @@ function App() {
 							data-aos-delay="500">
 							<button
 								className="primary"
-								onClick={() => go('work')}>
+								onClick={() => go('projects')}>
 								Explore my work <ArrowUpRight size={17} />
 							</button>
 
 							<a
 								className="secondary"
-								href="mailto:Fina811@gmail.com">
+								href="#contact">
 								Get in touch <Mail size={16} />
 							</a>
 						</div>
@@ -233,9 +236,9 @@ function App() {
 							data-aos="fade-left"
 							data-aos-duration="900"
 							data-aos-delay="150">
-							<p>In digital banking, every successful transaction strengthens user confidence. My role is to help ensure every release is secure, reliable, understandable, and ready for production.</p>
+							<p>In digital banking, even a small issue can affect someone’s trust. I help teams release features that are secure, reliable, and easy to understand.</p>
 
-							<p>I think beyond the happy path — exploring edge cases, user behavior, device differences, and potential risks before they reach customers.</p>
+							<p>I also test the less obvious paths: unusual inputs, different devices, and the things users might do that nobody expected.</p>
 
 							<div className="principles">
 								<div
@@ -347,7 +350,7 @@ function App() {
 								<em>work.</em>
 							</h2>
 
-							<p>A combination of analytical thinking, business understanding, and close collaboration with technical and non technical stakeholders.</p>
+						<p>My approach combines careful analysis, business context, and straightforward communication with both technical and non-technical teams.</p>
 						</div>
 
 						<div
@@ -363,6 +366,7 @@ function App() {
 										key={x}
 										data-aos="zoom-in"
 										data-aos-delay={200 + index * 80}>
+										{React.createElement(skillIcons[index], { size: 15 })}
 										{x}
 									</span>
 								))}
@@ -376,7 +380,7 @@ function App() {
 										key={x}
 										data-aos="zoom-in"
 										data-aos-delay={300 + index * 80}>
-										{x === 'Figma' && <Figma size={15} />}
+										{React.createElement(toolIcons[index], { size: 15 })}
 										{x}
 									</span>
 								))}
@@ -459,7 +463,7 @@ function App() {
 						<p
 							data-aos="fade-up"
 							data-aos-delay="200">
-							Always excited to discuss quality, technology, and new challenges.
+							If you’d like to talk about QA, digital products, or a new opportunity, feel free to reach out.
 						</p>
 
 						<a

@@ -99,7 +99,7 @@ h1 em,h2 em { font-family:'Playfair Display'; font-weight:600; }
 .skill-block { padding-top:10px; }
 .skill-block h4 { color:var(--muted); margin:0 0 18px; }
 .chips { display:flex; flex-wrap:wrap; gap:9px; }
-.chips span { border:1px solid var(--line); border-radius:999px; padding:10px 13px; font-size:13px; }
+.chips span { border:1px solid var(--line); border-radius:999px; padding:10px 13px; font-size:13px; display:inline-flex; align-items:center; gap:7px; background:rgba(255,255,255,.5); }
 .tools-title { margin-top:48px !important; }
 .tools span { display:inline-flex; gap:6px; align-items:center; }
 

@@ -105,7 +105,7 @@ function App() {
 							className="eyebrow"
 							data-aos="fade-up"
 							data-aos-delay="100">
-							<span className="dot" /> TESTING ANALYST · DIGITAL BANKING
+							<span className="dot" /> SAFINA KHAIRANI · TESTING ANALYST · DIGITAL BANKING
 						</div>
 
 						<h1

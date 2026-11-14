@@ -6,6 +6,7 @@ import './styles.css';
 const projects = [
 	{
 		number: '01',
+		year: '2025',
 		title: 'myBCA on Smartwatch',
 		tag: 'DIGITAL BANKING',
 		description: 'A wearable banking experience supporting NFC Pay, QRIS, and Cardless Transaction across Wear OS and Watch OS.',
@@ -15,6 +16,7 @@ const projects = [
 	},
 	{
 		number: '02',
+		year: '2024 — 2025',
 		title: 'Gebyar Hadiah BCA',
 		tag: 'STRATEGIC QA',
 		description: 'BCA loyalty program features across myBCA and BCA Mobile, including points, Gacha rewards, vouchers, and lucky draws.',
@@ -24,6 +26,7 @@ const projects = [
 	},
 	{
 		number: '03',
+		year: '2024',
 		title: 'Apply Credit Card Online',
 		tag: 'MYBCA',
 		description: 'A secure digital credit card application flow inside the myBCA mobile experience.',
@@ -65,7 +68,7 @@ function App() {
 					className={open ? 'nav-links open' : 'nav-links'}
 					data-aos="fade-down"
 					data-aos-delay="100">
-					{['about', 'work', 'skills', 'contact'].map((item, index) => (
+					{['about', 'projects', 'skills', 'contact'].map((item, index) => (
 						<button
 							key={item}
 							onClick={() => go(item)}
@@ -160,7 +163,10 @@ function App() {
 							className="portrait-placeholder"
 							data-aos="zoom-in"
 							data-aos-delay="500">
-							<span>SK</span>
+							<img
+								src="public/Profile Safina.jpg"
+								alt="Safina Khairani"
+							/>
 						</div>
 
 						<div
@@ -268,62 +274,54 @@ function App() {
 					</div>
 				</section>
 
-				{/* WORK */}
+				{/* ALL PROJECTS */}
 				<section
-					id="work"
-					className="section work">
-					<div className="work-heading">
+					id="projects"
+					className="section all-projects">
+					<div className="all-projects-heading">
 						<div
 							data-aos="fade-right"
 							data-aos-duration="900">
-							<div className="section-label">02 / SELECTED WORK</div>
-
-							<h2>
-								Projects that
-								<br />
-								<em>made an impact.</em>
+							<div className="section-label">02 / ALL PROJECTS</div>
+							<h2 className="all-projects-title">
+								<span className="project-flower coral">✿</span> All Projects <span className="project-flower lime">✿</span>
 							</h2>
 						</div>
-
 						<p
 							data-aos="fade-left"
-							data-aos-duration="900"
 							data-aos-delay="150">
-							From wearable banking to high visibility campaigns, these are selected projects from Safina’s portfolio.
+							Digital banking testing and quality assurance projects
 						</p>
 					</div>
 
-					<div className="project-list">
+					<div className="project-archive">
 						{projects.map((project, index) => (
-							<article
-								className={`project ${project.accent}`}
-								key={project.number}
+							<button
+								className={`archive-card ${project.accent}`}
+								key={`archive-${project.number}`}
+								onClick={() => setActiveProject(project)}
 								data-aos="fade-up"
-								data-aos-delay={index * 150}
-								data-aos-duration="800">
-								<div className="project-number">{project.number}</div>
-
-								<div className="project-main">
-									<span className="project-tag">{project.tag}</span>
-
-									<h3>{project.title}</h3>
-
-									<p>{project.description}</p>
-
-									<button
-										className="text-button"
-										onClick={() => setActiveProject(project)}>
-										View case study <ArrowUpRight size={16} />
-									</button>
-								</div>
-
-								<div className="project-icon">
-									<CheckCircle2
-										size={46}
-										strokeWidth={1.1}
-									/>
-								</div>
-							</article>
+								data-aos-delay={index * 120}>
+								<span className="archive-topline">
+									<span>{project.number}</span>
+									<span>{project.year}</span>
+								</span>
+								<span className="mockup-screen">
+									<span className="mockup-bar" />
+									<span className="mockup-lines">
+										<i />
+										<i />
+										<i />
+										<i />
+									</span>
+									<span className="mockup-chart" />
+								</span>
+								<span className="project-tag">{project.tag}</span>
+								<strong>{project.title}</strong>
+								<span className="archive-arrow">
+									View case study <ArrowUpRight size={16} />
+								</span>
+							</button>
 						))}
 					</div>
 				</section>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { ArrowUpRight, CheckCircle2, ExternalLink, Figma, Mail, MapPin, Menu, X, ShieldCheck, Sparkles, Lightbulb, Puzzle, RefreshCw, UsersRound, Send, Wrench, BriefcaseBusiness } from 'lucide-react';
+import { ArrowUpRight, CheckCircle2, ExternalLink, Instagram, Mail, MapPin, Menu, X, ShieldCheck, Sparkles, Lightbulb, Puzzle, RefreshCw, UsersRound, BriefcaseBusiness } from 'lucide-react';
 import profilePhoto from './assets/Profile Safina.jpg';
 import './styles.css';
 
@@ -39,10 +39,9 @@ const projects = [
 
 const skills = ['Strategic thinking', 'Problem solving', 'Process improvement', 'Stakeholder management', 'Cross functional collaboration'];
 
-const tools = ['Figma', 'Postman', 'Jira', 'Google Workspace', 'Microsoft Office'];
+const tools = ['Figma', 'Postman', 'Jira', 'Selenium', 'Microsoft'];
 
 const skillIcons = [Lightbulb, Puzzle, RefreshCw, UsersRound, BriefcaseBusiness];
-const toolIcons = [Figma, Send, Wrench, UsersRound, BriefcaseBusiness];
 
 function App() {
 	const [open, setOpen] = useState(false);
@@ -380,7 +379,11 @@ function App() {
 										key={x}
 										data-aos="zoom-in"
 										data-aos-delay={300 + index * 80}>
-										{React.createElement(toolIcons[index], { size: 15 })}
+										<img
+											className="tool-logo-image"
+											src={`/src/assets/tools-logo/${x.toLowerCase().replace(/\s+/g, '-')}.svg`}
+											alt={`${x} logo`}
+										/>
 										{x}
 									</span>
 								))}
@@ -489,7 +492,12 @@ function App() {
 								LinkedIn <ExternalLink size={14} />
 							</a>
 
-							<span>@safinakhairani</span>
+							<a
+								href="https://www.instagram.com/safinakhairani/"
+								target="_blank"
+								rel="noreferrer">
+								<Instagram size={15} /> @safinakhairani <ExternalLink size={14} />
+							</a>
 						</div>
 					</div>
 				</section>

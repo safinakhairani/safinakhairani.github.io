@@ -1,5 +1,5 @@
 git status
 git add .
-git commit -m "add animation"
+git commit -m "remove vercel"
 npm run deploy
 git push -u origin main

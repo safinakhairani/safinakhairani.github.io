@@ -7,6 +7,11 @@ import flyingGachaImage from './assets/project/flying gacha.jpg';
 import pilihGachaImage from './assets/project/pilih gacha.jpg';
 import applyCreditCardImage from './assets/project/apply credit card online.jpeg';
 import mybcaSmartwatchImage from './assets/project/mybca on smartwatch.jpeg';
+import figmaLogo from './assets/tools-logo/figma.svg';
+import postmanLogo from './assets/tools-logo/postman.svg';
+import jiraLogo from './assets/tools-logo/Jira.svg';
+import seleniumLogo from './assets/tools-logo/selenium.svg';
+import microsoftLogo from './assets/tools-logo/microsoft.svg';
 
 const projects = [
 	{
@@ -62,6 +67,13 @@ const projects = [
 const skills = ['Strategic thinking', 'Problem solving', 'Process improvement', 'Stakeholder management', 'Cross functional collaboration'];
 
 const tools = ['Figma', 'Postman', 'Jira', 'Selenium', 'Microsoft'];
+const toolLogos = {
+	Figma: figmaLogo,
+	Postman: postmanLogo,
+	Jira: jiraLogo,
+	Selenium: seleniumLogo,
+	Microsoft: microsoftLogo,
+};
 
 const skillIcons = [Lightbulb, Puzzle, RefreshCw, UsersRound, BriefcaseBusiness];
 
@@ -399,7 +411,7 @@ function App() {
 										data-aos-delay={300 + index * 80}>
 										<img
 											className="tool-logo-image"
-											src={`/src/assets/tools-logo/${x.toLowerCase().replace(/\s+/g, '-')}.svg`}
+											src={toolLogos[x]}
 											alt={`${x} logo`}
 										/>
 										{x}
